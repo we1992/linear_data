@@ -1,0 +1,28 @@
+ALGORITHM sum_overlapping_slt1
+VAR
+n,m,i,j: INTEGER;
+tab1 : ARRAY_OF INTEGER [n];
+tab2 : ARRAY_OF INTEGER [m];
+sumOverlapping: INTEGER:=0;
+BEGIN
+ //insert tab1
+    FOR i FROM 0 TO n-1 STEP  1  DO
+        read(tab1[i]);
+    END_FOR 
+
+//insert tab2
+     FOR j FROM 0 TO m-1 STEP  1 DO 
+         read(tab2[j]); 
+    END_FOR
+    // compare each element of tab1 with tab2
+    FOR i FROM 0 TO n-1 STEP 1  DO
+      FOR j FROM 0 TO m-1 STEP 0  DO
+        IF (tab1[i]=tab2[j]) THEN
+        sumOverlapping:=sumOverlapping+tab1[i]+tab2[j];
+        END_IF
+      END_FOR
+    END_FOR
+    //output
+ write("the sum of overlapping elementsis is: ",sumOverlapping);
+   
+END

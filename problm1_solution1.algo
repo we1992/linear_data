@@ -1,0 +1,37 @@
+ALGORITHM sum_discint_slt1
+VAR
+n,m,i,j : INTEGER;
+tab1 : ARRAY_OF INTEGER [n];
+tab2 : ARRAY_OF INTEGER [m];
+sum-distinct : INTEGER:=0;
+BEGIN
+//insert tab1
+    FOR i FROM 0 TO n-1 STEP  1  DO
+        read(tab1[i]);
+    END_FOR 
+
+//insert tab2
+     FOR j FROM 0 TO m-1 STEP  1 DO 
+         read(tab2[j]); 
+    END_FOR
+
+    //comparer les elements du tab1 avec les element du tab2
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO m-1 STEP 1 D
+           IF (tab1[i]<>tab2[j]) THEN
+              sum-distinct:=sum-distinct + tab1[i];
+           END_IF
+        END_FOR
+    END_FOR
+
+//inverser l'operation
+    FOR j FROM 0 TO m-1 STEP 1 DO
+        FOR i FROM 0 TO n-1 STEP 1  DO
+           IF (tab2[j]<>tab1[i]) THEN
+              sum-distinct:=sum-distinct + tab2[j];
+           END_IF
+        END_FOR
+    END_FOR
+    write(sum-distinct);
+
+END

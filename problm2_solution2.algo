@@ -1,0 +1,36 @@
+ALGORITHM sum_overlapping_slt2
+VAR
+      hashtab:HASH_TABLE<INTEGER,INTEGER>
+      n,m,i,j: INTEGER;
+tab1 : ARRAY_OF INTEGER [n];
+tab2 : ARRAY_OF INTEGER [m];
+sumOverlapping: INTEGER:=0;
+key:=0,count:=0 : INTEGER ;
+BEGIN
+   
+   //read tab1 and insert it in htab
+   FOR i FROM 0 TO n-1 STEP 1 DO
+      read(tab1[i]);
+      hashtab.insert(key,tab1[i]);
+      key:=key+1;
+   END_FOR
+
+    //read tab2 and insert it in htab
+   FOR j FROM 0 TO m-1 STEP 1 DO
+      read(tab2[j]);
+      hashtab.insert(key,tab2[j]);
+      key:=key+1;
+   END_FOR
+   //tester si une valeur se trouve 2 fois dans le hashtab
+   FOR i FROM 0 TO n-1 STEP 1  DO
+      IF (hashtab.lookup(tab1[i]=tTRUE) THEN
+        count:=count+1;
+      END_IF
+      //si on trouve la valeur 2 fois
+      IF (count=2) THEN
+         hashtab.insert(1,tab1[i]);
+         sumOverlapping:=sumOverlapping+(hashtab.get(1)*2);
+      END_IF
+   END_FOR
+   write(sumOverlapping);
+END
